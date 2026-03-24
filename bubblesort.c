@@ -6,14 +6,35 @@
 
 //functionfor printing array
 void printArray(int arr[], int n) {
-    
+
     for (int i = 0; i < n; i++) {  //iterates through array reading each elements
         printf("%d", arr[i]);
     }
     printf("\n");
 }
 
+//swaps 2 numbers
+void swap(int *a, int *b) {
+    int temp = *a; //saves a in temp
+    *a = *b;       //copies b to a
+    *b = temp;     //copies temp(old a) to b
 
+}
+
+void bubbleSort(int arr[], int n) {
+
+    //outer loop for passes
+    for (int i= 0; i < n-1; i++) {
+        //inner loop for comparing neighbouring elements
+        for ( int j = 0; j < n-i-1; j++) {
+            
+            //if left element is bigger than right element, swap them
+            if (arr[j] > arr[j+1]) {
+                swap(&arr[j], &arr[j+1]);
+            }
+        }
+    }
+}
 
 int main() {
  
@@ -23,5 +44,10 @@ int main() {
     printf("Before sorting: ");
     printArray(arr, n);
 
+    bubbleSort(arr, n);
+
+    printf("After sorting: ");
+    printArray(arr, n);
+    
     return 0;
 }
