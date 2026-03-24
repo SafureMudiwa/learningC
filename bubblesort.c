@@ -13,14 +13,6 @@ void printArray(int arr[], int n) {
     printf("\n");
 }
 
-//swaps 2 numbers
-void swap(int *a, int *b) {
-    int temp = *a; //saves a in temp
-    *a = *b;       //copies b to a
-    *b = temp;     //copies temp(old a) to b
-
-}
-
 void bubbleSort(int arr[], int n) {
 
     //outer loop for passes
@@ -30,7 +22,13 @@ void bubbleSort(int arr[], int n) {
             
             //if left element is bigger than right element, swap them
             if (arr[j] > arr[j+1]) {
-                swap(&arr[j], &arr[j+1]);
+                int *a, *b; //pointers to elements to be swapped
+                a = &arr[j];     //pointer a points to current element
+                b = &arr[j+1];   //pointer b points to next element
+                
+                int temp = *a; //saves a in temp
+                *a = *b;       //copies b to a
+                *b = temp;     //copies temp(old a) to b
             }
         }
     }
@@ -48,6 +46,6 @@ int main() {
 
     printf("After sorting: ");
     printArray(arr, n);
-    
+
     return 0;
 }
