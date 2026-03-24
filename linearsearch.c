@@ -1,22 +1,23 @@
 #include <stdio.h>
 
-int linearSearch(int array[], int n, int target) {
+int linearSearch(int array[], int target) {
 
-    //going through array element by element
-    for (int i=0; i < n; i++) {
+    int i = 0;
+    while (array[i] != -1) {
         if (array[i] == target) {
-            return i;    //index of target element in array
+            return i;   //target found, return index
         }
+        i++;
     }
-    return -1; //target not found
+    return -1;  //target not found, return -1
 }
 
 int main() {
-    int array[] = {5, 3, 8, 1, 4};
-    int n = 5;
+    //array must end with -1
+    int array[] = {5, 3, 8, 1, 4, -1};
     int target = 8;
 
-    int result = linearSearch(array, n, target);
+    int result = linearSearch(array, target);
 
     if (result != -1) {
         printf("Found %d at idnex %d\n", target, result);
