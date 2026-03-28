@@ -19,3 +19,11 @@ int minDistance(int dist[], int visted[]) {
 }
 
 //Prints final distances and paths
+
+void dijkstra(int source) {
+    int distance[max_nodes]; //shortestdistance from source to each node
+    bool visted[max_nodes];
+
+    //initialize all distances to infinity and visited to false
+    
+}
